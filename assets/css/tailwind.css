@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-left-top bg-cover bg-primary font-nunito;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+h1 {
+  @apply mb-2 text-4xl font-bold text-accent2;
+}
+
+h2 {
+  @apply mb-2 text-2xl font-bold text-accent3 active:text-secondary;
+}
+
+h3 {
+  @apply mb-2 text-xl font-bold text-accent3;
+}
+
+input,
+textarea {
+  @apply p-2 border-2 resize-none border-secondary/50;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+.absolute-center {
+  @apply absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2
+}
+
+.border-gradient {
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, #d5cae4, #e59462);
+}
+
+.button {
+  @apply px-5 py-2 text-white rounded-full bg-accent3 hover:shadow-inner hover:shadow-orange-800/40 active:text-accent3 active:bg-white;
+}
+
+.gradient-hr {
+  @apply h-1 col-span-12 mx-auto bg-gradient-to-r from-accent3 via-secondary to-accent3;
+}
+
+.navbar-item {
+  @apply mr-4 text-accent2 active:text-accent3
+}
+
+.pill {
+  @apply inline-block p-2 text-xs transform rounded-full bg-secondary/10 text-accent2 active:text-accent3 hover:shadow-inner hover:shadow-purple-700/10 hover:scale-105;
+}
+
+.post-tags {
+  @apply inline-block my-1 mr-4 md:my-4;
+}
+
+.scrollbar {
+  scrollbar-color: #dfdce4 #fff ;
+  scrollbar-width: thin;
+}
