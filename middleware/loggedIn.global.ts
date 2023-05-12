@@ -1,4 +1,4 @@
-import getUser from "@/composables/chatroom/getUser";
+import getUser from "~/composables/auth/getUser";
 import { useStore } from "~/store";
 
 export default defineNuxtRouteMiddleware((to, from) => {
@@ -12,8 +12,10 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
     if (user.value) {
       store.logIn();
+      store.setCurrentUser(user.value);
     } else {
       store.logOut();
+      store.setCurrentUser(null);
     }
   };
 

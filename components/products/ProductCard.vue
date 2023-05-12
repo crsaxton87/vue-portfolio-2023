@@ -2,14 +2,14 @@
   <div class="text-center">
     <NuxtLink :to="`/products/${product.id}`">
       <div
-        class="p-4 overflow-hidden duration-300 ease-out transform bg-white shadow-sm hover:shadow-md hover:scale-110 hover:rotate-3 hover:z-10 hover:relative"
+        class="transform overflow-hidden bg-white p-4 shadow-sm duration-300 ease-out sm:hover:relative sm:hover:z-10 sm:hover:rotate-3 sm:hover:scale-110 sm:hover:shadow-md"
       >
-        <nuxt-img
-          :src="`static/img/snoods/${product.img}.jpg`"
-          alt="product thumb"
-          class="object-cover h-64 min-w-full"
+        <img
+          :src="`/img/snoods/${product.img}.jpg`"
+          :alt="`${product.title} thumb`"
+          class="h-64 min-w-full object-cover"
         />
-        <div class="w-full mt-4 gradient-hr"></div>
+        <div class="gradient-hr mt-4 w-full"></div>
         <div class="text-right">
           <h4 class="font-bold text-accent2">{{ product.title }}</h4>
           <h4 class="text-sm">${{ product.price }}</h4>

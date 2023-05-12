@@ -1,18 +1,18 @@
 <template>
-  <form class="flex items-center mt-5">
+  <form class="mt-5 flex items-center">
     <textarea
       v-model="message"
-      class="w-full mr-4 window-height"
+      class="window-height mr-4 w-full"
       placeholder="Type a message and hit enter to send"
       @keypress.enter.prevent="handleSubmit"
     ></textarea>
-    <button class="h-10 button" @click.prevent="handleSubmit">Submit</button>
+    <button class="button h-10" @click.prevent="handleSubmit">Submit</button>
     <div class="error">{{ error }}</div>
   </form>
 </template>
 
 <script setup>
-import getUser from "@/composables/chatroom/getUser";
+import getUser from "~/composables/auth/getUser";
 import useCollection from "@/composables/chatroom/useCollection";
 import { timestamp } from "@/firebase/config";
 

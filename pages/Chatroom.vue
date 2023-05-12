@@ -1,5 +1,5 @@
 <template>
-  <div class="container w-5/6 mx-auto">
+  <div class="container mx-auto w-5/6">
     <UserDetails />
     <ChatWindow />
     <NewChatForm />
@@ -10,7 +10,7 @@
 import ChatWindow from "@/components/chatroom/ChatWindow.vue";
 import UserDetails from "@/components/chatroom/UserDetails.vue";
 import NewChatForm from "@/components/chatroom/NewChatForm.vue";
-import getUser from "@/composables/chatroom/getUser";
+import getUser from "~/composables/auth/getUser";
 
 definePageMeta({
   middleware: [

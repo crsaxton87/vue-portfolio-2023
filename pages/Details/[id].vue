@@ -1,5 +1,5 @@
 <template>
-  <div class="w-5/6 mx-auto sm:w-full">
+  <div class="px-5 sm:w-full sm:px-0">
     <div v-if="error">{{ error }}</div>
     <div v-if="post">
       <h2>{{ post.title }}</h2>
@@ -15,7 +15,7 @@
       <div class="flex items-center justify-center sm:block">
         <button
           v-if="showDelete()"
-          class="flex justify-center h-10 mt-4 button"
+          class="button mt-4 flex h-10 justify-center"
           @click="handleClick"
         >
           <HeroIcons icon="trash" class="mr-2" />
@@ -33,7 +33,7 @@ import { db } from "@/firebase/config";
 import HeroIcons from "~/components/HeroIcons.vue";
 import TagPill from "~/components/blog/TagPill.vue";
 import getPost from "~/composables/blog/getPost";
-import getUser from "@/composables/chatroom/getUser";
+import getUser from "~/composables/auth/getUser";
 
 const { user } = await getUser();
 const route = useRoute();
@@ -56,6 +56,9 @@ const handleClick = async () => {
 };
 
 const showDelete = () => {
-  return post.value.createdBy === user.value.email;
+  if (user.value) {
+    return post.value.createdBy === user.value.email;
+  }
+  return false;
 };
 </script>

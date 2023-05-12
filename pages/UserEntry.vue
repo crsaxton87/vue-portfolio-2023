@@ -1,5 +1,5 @@
 <template>
-  <div class="container w-5/6 mx-auto text-center sm:w-full">
+  <div class="container mx-auto w-5/6 text-center sm:w-full">
     <h1>Welcome</h1>
     <div v-if="showLogin">
       <h2>Log in to use the chat room or create blog posts</h2>
@@ -23,15 +23,12 @@
 </template>
 
 <script setup>
-import SignupForm from "@/components/chatroom/SignupForm.vue";
-import LoginForm from "@/components/chatroom/LoginForm.vue";
-import { useStore } from "~/store";
+import SignupForm from "@/components/auth/SignupForm.vue";
+import LoginForm from "@/components/auth/LoginForm.vue";
 
-const store = useStore();
 const showLogin = ref(true);
 
 const enterSite = () => {
-  store.logIn();
   const prevRoute = localStorage.getItem("prevRoute");
   if (prevRoute === "Chatroom") {
     navigateTo("/chatroom");
@@ -45,6 +42,6 @@ const enterSite = () => {
 
 <style>
 .login-toggle {
-  @apply cursor-pointer underline font-bold;
+  @apply cursor-pointer font-bold underline;
 }
 </style>

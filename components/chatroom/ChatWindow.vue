@@ -1,7 +1,7 @@
 <template>
   <div
     ref="messages"
-    class="py-5 overflow-hidden bg-white border-4 px-7 border-secondary/50 hover:overflow-auto scrollbar chat-height"
+    class="scrollbar chat-height overflow-hidden border-4 border-secondary/50 bg-white px-7 py-5 hover:overflow-auto"
   >
     <div v-if="error">{{ error }}</div>
     <div v-if="documents" class="scrollbar">
@@ -49,6 +49,6 @@ export default {
 
 <style scoped>
 .chat-height {
-  height: calc(80vh - v-bind(navHeight));
+  height: calc(68vh - 60px);
 }
 </style>

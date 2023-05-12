@@ -1,42 +1,55 @@
-# Nuxt 3 Minimal Starter
+# Vue Portfolio 2023
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Technology
 
-## Setup
+[![Vue Badge](https://img.shields.io/static/v1?label=framework&message=Vue&color=DAEDBD)](https://vuejs.org/)
+[![Nuxt Badge](https://img.shields.io/static/v1?label=framework&message=Nuxt&color=DAEDBD)](https://nuxt.com/)
+[![Pinia Badge](https://img.shields.io/static/v1?label=state%20management&message=Pinia&color=DAEDBD)](https://eslint.org/)
+[![Tailwind Badge](https://img.shields.io/static/v1?label=styling&message=Tailwind%20CSS&color=DAEDBD)](https://eslint.org/)
 
-Make sure to install the dependencies:
+[![HTML Badge](https://img.shields.io/static/v1?label=language&message=HTML&color=4293a2)](https://www.w3schools.com/html/)
+[![CSS Badge](https://img.shields.io/static/v1?label=language&message=CSS&color=4293a2)](https://www.w3schools.com/css/)
+[![Javascript Badge](https://img.shields.io/static/v1?label=language&message=Javascript&color=4293a2)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-```bash
-# yarn
-yarn install
+[![Firebase Badge](https://img.shields.io/static/v1?label=authentication&message=Firebase&color=red)](https://firebase.google.com)
+[![Firestore Badge](https://img.shields.io/static/v1?label=database&message=Firestore&color=red)](https://firebase.google.com/docs/firestore/)
 
-# npm
-npm install
+[![ESLint Badge](https://img.shields.io/static/v1?label=linter&message=ESLint&color=d5cae4)](https://eslint.org/)
+[![Prettier Badge](https://img.shields.io/static/v1?label=formatter&message=Prettier&color=d5cae4)](https://eslint.org/)
 
-# pnpm
-pnpm install
-```
+## Features
 
-## Development Server
+### Blog
 
-Start the development server on `http://localhost:3000`
+- Blog posts are stored in the database and displayed in order of creation.
+- Each post has tags that, when clicked, shows a list of all posts with the same tags.
+- Registered and logged in users can create posts.
+- Users can only delete posts that they created.
 
-```bash
-npm run dev
-```
+[<img src="./img/01.png" width="720"/>](./img/01.png)
+### Store
 
-## Production
+- The store displays a full line of products retrieved from the database, with AI-generated titles and descriptions.
+- Product cards animate on mouseover.
+- Products can be added to or removed from a cart that is persistent across page reloads.
 
-Build the application for production:
+[<img src="./img/02.png" width="720"/>](./img/02.png)
 
-```bash
-npm run build
-```
+### Chat Room
 
-Locally preview production build:
+- Chat messages are stored in the database and displayed with the newest messages at the bottom of the window.
+- Individual messages show the name of the user that sent it and how long it has been since it was sent.
 
-```bash
-npm run preview
-```
+[<img src="./img/03.png" width="720"/>](./img/03.png)
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### Nav Bar
+
+- When logged in, the user's email address is displayed at the top of the screen.
+- The menu bar collapses into a hamburger menu on mobile.
+
+### Log in / Sign up
+
+- Users are able to create and log in with accounts with username, email, and password.
+- The blog post creation and chat room pages are only accessible by logged in users.
+
+[<img src="./img/04.png" width="720"/>](./img/04.png)

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="grid w-11/12 grid-cols-1 gap-5 mx-auto mb-10 sm:mb-20 sm:grid-cols-2 lg:grid-cols-4 sm:w-full"
+      class="mx-auto mb-10 grid w-11/12 grid-cols-1 gap-5 sm:mb-20 sm:w-full sm:grid-cols-2 lg:grid-cols-4"
     >
       <div v-for="p in products" :key="p">
         <ProductCard :product="p" />

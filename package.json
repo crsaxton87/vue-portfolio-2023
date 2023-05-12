@@ -1,11 +1,13 @@
 {
-  "name": "nuxt-app",
+  "name": "vue-portfolio-2023",
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "deploy": "npm run build && firebase deploy",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "preview:fb": "npm run build && firebase emulators:start",
     "postinstall": "nuxt prepare",
     "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
@@ -14,7 +16,6 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^0.3.2",
-    "@nuxt/image-edge": "^1.0.0-28020728.5df24eb",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/eslint-module": "^4.0.2",
     "@nuxtjs/html-validator": "^1.2.5",
@@ -23,8 +24,12 @@
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.4.0",
+    "firebase-functions-test": "^3.1.0",
     "nuxt": "^3.4.2",
     "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.8",
     "typescript": "^5.0.4"
   },
   "dependencies": {
@@ -32,6 +37,7 @@
     "@pinia/nuxt": "^0.4.8",
     "date-fns": "^2.29.3",
     "firebase": "^9.19.1",
-    "pinia": "^2.0.34"
+    "pinia": "^2.0.34",
+    "vuefire": "^3.1.0"
   }
 }

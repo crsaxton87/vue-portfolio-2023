@@ -1,18 +1,18 @@
 <template>
   <div>
     <div
-      class="grid justify-center sm:items-center sm:w-full w-5/6 grid-rows-[1fr_2fr] sm:gap-10 mx-auto sm:grid-rows-1 sm:grid-cols-[1fr_2fr]"
+      class="mx-auto grid w-5/6 grid-rows-[1fr_2fr] justify-center sm:w-full sm:grid-cols-[1fr_2fr] sm:grid-rows-1 sm:items-center sm:gap-10"
     >
       <div class="">
-        <nuxt-img
-          :src="`static/img/snoods/${product.img}.jpg`"
-          alt="product img"
-          class="border-8 shadow-sm border-gradient max-h-96"
+        <img
+          :src="`/img/snoods/${product.img}.jpg`"
+          :alt="`${product.title} image`"
+          class="border-gradient mx-auto max-h-96 border-8 shadow-sm sm:mx-0"
         />
       </div>
       <div>
         <div
-          class="flex items-center justify-between mt-4 mb-4 border-b-2 sm:mt-0"
+          class="mb-4 mt-4 flex items-center justify-between border-b-2 sm:mt-0"
         >
           <h2 class="text-4xl">{{ product.title }}</h2>
           <p class="text-xl">${{ product.price }}</p>
@@ -26,10 +26,10 @@
               v-model="quantity"
               minlength="1"
               type="number"
-              class="ml-2 w-14 sm:w-20 sm:ml-4"
+              class="ml-2 w-14 sm:ml-4 sm:w-20"
             />
           </div>
-          <button class="flex h-10 button" @click.prevent="addToCart(product)">
+          <button class="button flex h-10" @click.prevent="addToCart(product)">
             <HeroIcons icon="cart" class="mr-2" />
             <span>Add to cart</span>
           </button>

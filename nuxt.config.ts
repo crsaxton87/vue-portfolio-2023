@@ -4,10 +4,9 @@ export default defineNuxtConfig({
     "@nuxtjs/eslint-module",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
-    // "@nuxt/devtools",
+    "@nuxt/devtools",
     "@pinia/nuxt",
     "@nuxtjs/html-validator",
-    "@nuxt/image-edge",
   ],
   devtools: false,
   ssr: false,
@@ -21,5 +20,8 @@ export default defineNuxtConfig({
       meta: [],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
+  },
+  nitro: {
+    preset: "firebase",
   },
 });

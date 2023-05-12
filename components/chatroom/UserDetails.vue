@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import getUser from "@/composables/chatroom/getUser";
+import getUser from "~/composables/auth/getUser";
 
 const { user } = getUser();
 </script>

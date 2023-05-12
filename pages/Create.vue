@@ -1,5 +1,5 @@
 <template>
-  <div class="w-5/6 mx-auto sm:w-3/4">
+  <div class="mx-auto w-5/6 sm:w-3/4">
     <div v-if="error">{{ error }}</div>
     <form
       class="grid sm:grid-rows-[6rem_24rem_7rem_3rem]"
@@ -7,13 +7,13 @@
     >
       <div class="mb-4">
         <h3>Title</h3>
-        <input v-model="title" class="w-full h-10" type="text" required />
+        <input v-model="title" class="h-10 w-full" type="text" required />
       </div>
       <div class="mb-4">
         <h3>Content</h3>
         <textarea
           v-model="body"
-          class="w-full h-80 min-h-[300px]"
+          class="h-80 min-h-[300px] w-full"
           required
         ></textarea>
       </div>
@@ -21,7 +21,7 @@
         <h3>Tags <span class="text-sm">(press enter to add tag)</span></h3>
         <input
           v-model="tagInput"
-          class="w-full h-10"
+          class="h-10 w-full"
           type="text"
           @keydown.enter.prevent="handleKeydown"
           @keydown.tab.prevent="handleKeydown"
@@ -30,7 +30,7 @@
         <div v-for="tag in tags" :key="tag" class="pill">#{{ tag }}</div>
       </div>
       <div class="mx-auto">
-        <button class="mt-2 button">Add Post</button>
+        <button class="button mt-2">Add Post</button>
       </div>
     </form>
   </div>
@@ -39,7 +39,7 @@
 <script setup>
 import { addDoc, collection } from "@firebase/firestore";
 import { db, timestamp } from "@/firebase/config";
-import getUser from "@/composables/chatroom/getUser";
+import getUser from "~/composables/auth/getUser";
 
 definePageMeta({
   middleware: [

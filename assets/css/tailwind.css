@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-left-top bg-cover bg-primary font-nunito;
+  @apply bg-primary bg-cover bg-left-top font-nunito;
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
@@ -29,7 +29,7 @@ h3 {
 
 input,
 textarea {
-  @apply p-2 border-2 resize-none border-secondary/50;
+  @apply resize-none border-4 border-secondary/50 p-2;
 }
 
 input:focus,
@@ -38,7 +38,7 @@ textarea:focus {
 }
 
 .absolute-center {
-  @apply absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2
+  @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform;
 }
 
 .border-gradient {
@@ -46,27 +46,31 @@ textarea:focus {
   border-image-source: linear-gradient(to left, #d5cae4, #e59462);
 }
 
+.break {
+  @apply h-0 basis-full;
+}
+
 .button {
-  @apply px-5 py-2 text-white rounded-full bg-accent3 hover:shadow-inner hover:shadow-orange-800/40 active:text-accent3 active:bg-white;
+  @apply rounded-full bg-accent3 px-5 py-2 text-white hover:shadow-inner hover:shadow-orange-800/40 active:bg-white active:text-accent3;
 }
 
 .gradient-hr {
-  @apply h-1 col-span-12 mx-auto bg-gradient-to-r from-accent3 via-secondary to-accent3;
+  @apply col-span-12 mx-auto h-1 bg-gradient-to-r from-accent3 via-secondary to-accent3;
 }
 
 .navbar-item {
-  @apply mr-4 text-accent2 active:text-accent3
+  @apply text-accent2 active:text-accent3 md:mr-4;
 }
 
 .pill {
-  @apply inline-block p-2 text-xs transform rounded-full bg-secondary/10 text-accent2 active:text-accent3 hover:shadow-inner hover:shadow-purple-700/10 hover:scale-105;
+  @apply inline-block transform rounded-full bg-secondary/10 p-2 text-xs text-accent2 hover:scale-105 hover:shadow-inner hover:shadow-purple-700/10 active:text-accent3;
 }
 
 .post-tags {
-  @apply inline-block my-1 mr-4 md:my-4;
+  @apply mr-4 mt-2 inline-block;
 }
 
 .scrollbar {
-  scrollbar-color: #dfdce4 #fff ;
+  scrollbar-color: #dfdce4 #fff;
   scrollbar-width: thin;
 }
