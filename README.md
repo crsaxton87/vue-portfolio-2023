@@ -4,18 +4,18 @@
 
 [![Vue Badge](https://img.shields.io/static/v1?label=framework&message=Vue&color=DAEDBD)](https://vuejs.org/)
 [![Nuxt Badge](https://img.shields.io/static/v1?label=framework&message=Nuxt&color=DAEDBD)](https://nuxt.com/)
-[![Pinia Badge](https://img.shields.io/static/v1?label=state%20management&message=Pinia&color=DAEDBD)](https://eslint.org/)
-[![Tailwind Badge](https://img.shields.io/static/v1?label=styling&message=Tailwind%20CSS&color=DAEDBD)](https://eslint.org/)
+[![Pinia Badge](https://img.shields.io/static/v1?label=state%20management&message=Pinia&color=DAEDBD)](https://pinia.vuejs.org/)
+[![Tailwind Badge](https://img.shields.io/static/v1?label=styling&message=Tailwind%20CSS&color=DAEDBD)](https://tailwindcss.com/)
 
-[![HTML Badge](https://img.shields.io/static/v1?label=language&message=HTML&color=4293a2)](https://www.w3schools.com/html/)
-[![CSS Badge](https://img.shields.io/static/v1?label=language&message=CSS&color=4293a2)](https://www.w3schools.com/css/)
+[![HTML Badge](https://img.shields.io/static/v1?label=language&message=HTML&color=4293a2)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS Badge](https://img.shields.io/static/v1?label=language&message=CSS&color=4293a2)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![Javascript Badge](https://img.shields.io/static/v1?label=language&message=Javascript&color=4293a2)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 [![Firebase Badge](https://img.shields.io/static/v1?label=authentication&message=Firebase&color=red)](https://firebase.google.com)
 [![Firestore Badge](https://img.shields.io/static/v1?label=database&message=Firestore&color=red)](https://firebase.google.com/docs/firestore/)
 
 [![ESLint Badge](https://img.shields.io/static/v1?label=linter&message=ESLint&color=d5cae4)](https://eslint.org/)
-[![Prettier Badge](https://img.shields.io/static/v1?label=formatter&message=Prettier&color=d5cae4)](https://eslint.org/)
+[![Prettier Badge](https://img.shields.io/static/v1?label=formatter&message=Prettier&color=d5cae4)](https://prettier.io/)
 
 ## Features
 

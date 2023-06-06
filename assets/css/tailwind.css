@@ -1,40 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: "oliver";
+  src: url("/font/oliver.ttf") format("truetype"),
+    url("/font/oliver.otf") format("opentype"),
+    url("/font/oliver.woff2") format("woff2"),
+    url("/font/oliver.woff") format("woff");
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-primary bg-cover bg-left-top font-nunito;
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+html {
+  scrollbar-color: #ffdd49 #fff;
+  scrollbar-width: thin;
 }
 
-html {
-  height: -webkit-fill-available;
+body {
+  @apply relative overflow-x-hidden md:bg-off-white;
 }
 
 h1 {
-  @apply mb-2 text-4xl font-bold text-accent2;
+  @apply mb-2 text-4xl font-bold text-theme-r;
 }
 
 h2 {
-  @apply mb-2 text-2xl font-bold text-accent3 active:text-secondary;
+  @apply mb-2 text-2xl font-bold text-theme-r active:text-black;
 }
 
 h3 {
-  @apply mb-2 text-xl font-bold text-accent3;
-}
-
-input,
-textarea {
-  @apply resize-none border-4 border-secondary/50 p-2;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
+  @apply mb-2 text-xl font-bold text-theme-r;
 }
 
 .absolute-center {
@@ -43,7 +40,7 @@ textarea:focus {
 
 .border-gradient {
   border-image-slice: 1;
-  border-image-source: linear-gradient(to left, #d5cae4, #e59462);
+  border-image-source: linear-gradient(to left, #edcd44, #82cad6);
 }
 
 .break {
@@ -51,26 +48,28 @@ textarea:focus {
 }
 
 .button {
-  @apply rounded-full bg-accent3 px-5 py-2 text-white hover:shadow-inner hover:shadow-orange-800/40 active:bg-white active:text-accent3;
+  @apply rounded-full bg-theme-y px-5 py-2 text-black hover:text-theme-r active:text-black;
 }
 
 .gradient-hr {
-  @apply col-span-12 mx-auto h-1 bg-gradient-to-r from-accent3 via-secondary to-accent3;
-}
-
-.navbar-item {
-  @apply text-accent2 active:text-accent3 md:mr-4;
+  @apply col-span-12 mx-auto h-1 bg-gradient-to-r from-theme-y via-theme-b to-theme-y;
 }
 
 .pill {
-  @apply inline-block transform rounded-full bg-secondary/10 p-2 text-xs text-accent2 hover:scale-105 hover:shadow-inner hover:shadow-purple-700/10 active:text-accent3;
+  @apply inline-block transform rounded-full bg-theme-b/10 p-2 text-base text-black hover:scale-105 hover:shadow-inner hover:shadow-blue-700/10 active:text-theme-r;
 }
 
 .post-tags {
   @apply mr-4 mt-2 inline-block;
 }
 
-.scrollbar {
-  scrollbar-color: #dfdce4 #fff;
-  scrollbar-width: thin;
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1920px;
+  }
+}
+@media (min-width: 2160px) {
+  .container {
+    max-width: 2160px;
+  }
 }

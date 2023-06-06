@@ -1,9 +1,16 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <div class="mx-auto my-8 grid w-5/6 gap-4 md:w-2/3 lg:w-1/3">
-      <input v-model="email" type="email" required placeholder="email" />
+    <div class="mx-auto my-8 grid w-5/6 gap-4">
+      <input
+        v-model="email"
+        class="form"
+        type="email"
+        required
+        placeholder="email"
+      />
       <input
         v-model="password"
+        class="form"
         type="password"
         required
         placeholder="password"
@@ -36,3 +43,9 @@ const handleSubmit = async () => {
   }
 };
 </script>
+
+<style scoped>
+.form {
+  @apply w-full rounded-md border-2 border-theme-b/25 p-2;
+}
+</style>

@@ -11,6 +11,7 @@ export const useStore = defineStore({
     cart: cookie.value ? cookie.value : [],
     cartVisible: false,
     currentUser: null,
+    selectedProduct: null,
   }),
   getters: {
     cartSize() {
@@ -38,9 +39,10 @@ export const useStore = defineStore({
       if (item) {
         item.quantity += product.quantity.value;
       } else {
-        this.cart.push(product);
+        const { title, id, quantity, price } = product;
+        this.cart.push({ title, id, quantity: quantity.value, price });
       }
-      cookie.value = this.cart;
+      cookie.value = JSON.stringify(this.cart);
     },
     removeFromCart(id) {
       const item = this.cart.find((item) => item.id === id);
@@ -49,9 +51,13 @@ export const useStore = defineStore({
       } else {
         this.cart.splice(this.cart.indexOf(item), 1);
       }
+      cookie.value = JSON.stringify(this.cart);
     },
     cartToggle() {
       this.cartVisible = !this.cartVisible;
+    },
+    setSelectedProduct(product) {
+      this.selectedProduct = product;
     },
   },
 });

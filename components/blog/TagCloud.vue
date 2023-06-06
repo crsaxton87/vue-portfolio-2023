@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col px-4 pb-5 text-center sm:w-2/3 sm:px-0">
-    <h3 class="pb-1 pt-5">Tags</h3>
+    <div class="mb-4 mt-10 font-oliver text-4xl text-theme-r">Tags</div>
     <div class="self-center">
       <TagPill
         v-for="tag in tags"
         :key="tag"
         :tag="tag"
-        class="mb-2 mr-1 sm:mr-0"
+        class="mb-2 mr-1 sm:mr-2"
       />
     </div>
   </div>

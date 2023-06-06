@@ -1,5 +1,7 @@
 <template>
-  <div class="container mx-auto w-5/6 text-center sm:w-full">
+  <main
+    class="mx-auto flex h-[66vh] w-full flex-col items-center justify-center rounded-lg bg-white text-center lg:w-3/4 xl:w-1/2"
+  >
     <h1>Welcome</h1>
     <div v-if="showLogin">
       <h2>Log in to use the chat room or create blog posts</h2>
@@ -19,7 +21,7 @@
         instead
       </p>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup>
@@ -30,8 +32,8 @@ const showLogin = ref(true);
 
 const enterSite = () => {
   const prevRoute = localStorage.getItem("prevRoute");
-  if (prevRoute === "Chatroom") {
-    navigateTo("/chatroom");
+  if (prevRoute === "Videos") {
+    navigateTo("/videos");
   } else if (prevRoute === "Create") {
     navigateTo("/create");
   } else {
@@ -40,7 +42,13 @@ const enterSite = () => {
 };
 </script>
 
-<style>
+<style scoped>
+h1 {
+  @apply font-oliver text-7xl;
+}
+h2 {
+  @apply font-jost text-2xl;
+}
 .login-toggle {
   @apply cursor-pointer font-bold underline;
 }

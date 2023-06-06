@@ -1,10 +1,15 @@
 <template>
-  <div class="tag">
+  <div class="mt-10">
     <div v-if="error">{{ error }}</div>
-    <h1 class="ml-4 sm:ml-0">#{{ useRoute().params.id }}</h1>
+    <h1 class="mb-0 text-center lg:ml-10 lg:text-start">
+      #{{ useRoute().params.id }}
+    </h1>
     <div v-if="posts.length" class="grid grid-cols-12">
-      <PostList :posts="tagPosts" class="col-span-12 sm:col-span-10" />
-      <TagCloud :posts="posts" class="col-span-12 sm:col-span-2" />
+      <PostList
+        :posts="tagPosts"
+        class="col-span-12 mx-4 lg:col-span-10 lg:ml-20 lg:mr-10"
+      />
+      <TagCloud :posts="posts" class="col-span-12 mx-auto sm:col-span-2" />
     </div>
     <div v-else>
       <SpinnerGraphic />
@@ -26,3 +31,9 @@ const tagPosts = computed(() => {
   return posts.value.filter((post) => post.tags.includes(id));
 });
 </script>
+
+<style scoped>
+h1 {
+  @apply font-jost text-3xl;
+}
+</style>

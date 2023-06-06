@@ -35,9 +35,12 @@
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.0.0",
     "@pinia/nuxt": "^0.4.8",
+    "animate.css": "^4.1.1",
     "date-fns": "^2.29.3",
     "firebase": "^9.19.1",
+    "nuxt-swiper": "^1.1.0",
     "pinia": "^2.0.34",
+    "textfit": "^2.4.0",
     "vuefire": "^3.1.0"
   }
 }

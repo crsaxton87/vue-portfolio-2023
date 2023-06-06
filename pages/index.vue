@@ -1,32 +1,69 @@
 <template>
-  <div class="grid grid-cols-12 justify-items-center">
-    <NuxtLink class="logo col-span-12" to="/">Send Snoods</NuxtLink>
-    <div class="gradient-hr mb-1 mt-6 w-5/6 sm:my-10 sm:w-3/4"></div>
-    <div v-if="error" class="col-span-12">{{ error }}</div>
-    <div v-if="posts.length" class="col-span-12 grid grid-cols-12">
-      <PostList :posts="posts" class="col-span-12 sm:col-span-10" />
-      <div class="col-span-12 grid sm:col-span-2 sm:justify-items-end">
-        <TagCloud :posts="posts" />
-      </div>
-    </div>
-    <div v-else class="absolute-center">
-      <SpinnerGraphic />
-    </div>
-  </div>
+  <main class="grid grid-cols-1">
+    <button class="splash-button" @click="handleClick">SHOP SNOODS NOW</button>
+    <Splash2Up :config="splashConfig" />
+    <ProductTabbedCarousel :config="carouselConfig1" />
+    <BannerDivider :config="bannerConfig1" />
+    <BlogPanel />
+    <div class="hidden p-4 lg:block" name="padding"></div>
+  </main>
 </template>
 
 <script setup>
-import PostList from "~/components/blog/PostList.vue";
-import TagCloud from "~/components/blog/TagCloud.vue";
-import getPosts from "~/composables/blog/getPosts";
+import { useRouter } from "nuxt/app";
+import { navHeight } from "~/composables/layout/navHeight";
+import BannerDivider from "~/components/layout/BannerDivider.vue";
+import BlogPanel from "~/components/layout/BlogPanel.vue";
+import ProductTabbedCarousel from "~/components/layout/ProductTabbedCarousel.vue";
+import Splash2Up from "~/components/layout/Splash2Up.vue";
+const router = useRouter();
 
-const { posts, error, load } = getPosts();
+const currentNavHeight = ref(navHeight());
 
-load();
+const splashConfig = {
+  left: {
+    textTop: "snood",
+    textBottom: "doggy dogg",
+    img: "/img/blog/splash01.jpg",
+  },
+  right: {
+    textTop: "cute pooch",
+    textBottom: "comfy snood",
+    img: "/img/blog/splash02.jpg",
+  },
+};
+
+const carouselConfig1 = [
+  {
+    name: "Fun",
+    titles: ["Baby Alien Snood", "Rooster Snood", "Frog Snood"],
+  },
+  {
+    name: "Classic",
+    titles: ["Westerly Snood", "Dachshund Snood", "Black Bear Snood"],
+  },
+  {
+    name: "Limited Time",
+    titles: ["Baby Shark Snood", "Devil Snood", "Rhino Snood"],
+  },
+];
+
+const bannerConfig1 = {
+  img: "/img/blog/banner01.jpg",
+};
+
+const handleClick = () => {
+  router.push("products");
+};
+
+const buttonTop =
+  window.innerHeight / 2 + parseInt(currentNavHeight.value, 10) / 2 + "px";
 </script>
 
 <style scoped>
-.logo {
-  @apply mt-2 text-center font-logo text-6xl text-accent3 sm:text-8xl;
+.splash-button {
+  @apply h-16 w-56 rounded-md bg-theme-y font-jost text-lg font-semibold shadow-md hover:text-theme-r active:text-black;
+  @apply absolute left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform;
+  top: v-bind(buttonTop);
 }
 </style>
