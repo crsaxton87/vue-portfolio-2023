@@ -47,7 +47,7 @@ const props = defineProps({
   },
 });
 
-const config = titlesToProducts(props.config);
+const config = await titlesToProducts(props.config);
 
 const show = ref(config[0].name);
 

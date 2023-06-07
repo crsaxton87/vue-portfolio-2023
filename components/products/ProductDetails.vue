@@ -94,13 +94,13 @@ const props = defineProps({
 
 const product = ref(props.product);
 
-if (product.value && window.innerWidth >= 640) {
+if (product.value && window.innerWidth >= 1024) {
   window.onscroll = () => window.scrollTo(0, 0);
 }
 
 store.$subscribe((_mutation, state) => {
   product.value = state.selectedProduct;
-  if (product.value && window.innerWidth >= 640) {
+  if (product.value && window.innerWidth >= 1024) {
     window.onscroll = () => window.scrollTo(0, 0);
   }
 });
@@ -110,7 +110,9 @@ const modalTop = ref(null);
 const modalLeft = ref(null);
 
 onMounted(() => {
-  document.body.classList.add("overflow-y-hidden");
+  if (window.innerWidth >= 1024) {
+    document.body.classList.add("overflow-y-hidden");
+  }
   if (productModal.value) {
     modalTop.value =
       window.innerWidth >= 1024
@@ -147,6 +149,7 @@ watch(productModal, () => {
 
 const addToCart = (product) => {
   handleClose();
+  window.scrollTo(0, 0);
   store.addToCart({ ...product, quantity });
   store.cartToggle();
 };

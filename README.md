@@ -26,11 +26,11 @@
 - Registered and logged in users can create posts.
 - Users can only delete posts that they created.
 
-[<img src="./img/01.png" width="620"/>](./img/01.png)
+<!-- [<img src="./img/01.png" width="620"/>](./img/01.png)
 [<img src="./img/m01.png" width="181"/>](./img/m01.png)
 
 [<img src="./img/01a.png" width="620"/>](./img/01a.png)
-[<img src="./img/m01a.png" width="180"/>](./img/m01a.png)
+[<img src="./img/m01a.png" width="180"/>](./img/m01a.png) -->
 
 ### Store
 
@@ -38,35 +38,35 @@
 - Product cards animate on mouseover.
 - Products can be added to or removed from a cart that is persistent across page reloads.
 
-[<img src="./img/02.png" width="590"/>](./img/02.png)
+<!-- [<img src="./img/02.png" width="590"/>](./img/02.png)
 [<img src="./img/m02.png" width="204"/>](./img/m02.png)
 
 [<img src="./img/02a.png" width="588"/>](./img/02a.png)
 [<img src="./img/m02a.png" width="205"/>](./img/m02a.png)
 
 [<img src="./img/02b.png" width="590"/>](./img/02b.png)
-[<img src="./img/m02b.png" width="203"/>](./img/m02b.png)
+[<img src="./img/m02b.png" width="203"/>](./img/m02b.png) -->
 
 ### Chat Room
 
 - Chat messages are stored in the database and displayed with the newest messages at the bottom of the window.
 - Individual messages show the name of the user that sent it and how long it has been since it was sent.
 
-[<img src="./img/03.png" width="620"/>](./img/03.png)
-[<img src="./img/m03.png" width="177"/>](./img/m03.png)
+<!-- [<img src="./img/03.png" width="620"/>](./img/03.png)
+[<img src="./img/m03.png" width="177"/>](./img/m03.png) -->
 
 ### Log in / Sign up
 
 - Users are able to create and log in with accounts with username, email, and password.
 - The blog post creation and chat room pages are only accessible by logged in users.
 
-[<img src="./img/04.png" width="597"/>](./img/04.png)
-[<img src="./img/m04.png" width="204"/>](./img/m04.png)
+<!-- [<img src="./img/04.png" width="597"/>](./img/04.png)
+[<img src="./img/m04.png" width="204"/>](./img/m04.png) -->
 
 ### Nav Bar
 
 - When logged in, the user's email address is displayed at the top of the screen.
 - The menu bar collapses into a hamburger menu on mobile.
 
-[<img src="./img/m01.png" width="200"/>](./img/m01.png)
-[<img src="./img/m05.png" width="200"/>](./img/m05.png)
+<!-- [<img src="./img/m01.png" width="200"/>](./img/m01.png)
+[<img src="./img/m05.png" width="200"/>](./img/m05.png) -->

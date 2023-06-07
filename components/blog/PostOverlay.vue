@@ -14,7 +14,7 @@
       />
       <div class="w-full">
         <form
-          class="grid sm:grid-rows-[6rem_24rem_7rem_3rem]"
+          class="grid grid-rows-[6rem_14rem_7rem_3rem] items-center lg:grid-rows-[6rem_24rem_7rem_3rem]"
           @submit.prevent="handleSubmit"
         >
           <div class="mb-4">
@@ -31,7 +31,7 @@
             <h3>Content</h3>
             <textarea
               v-model="body"
-              class="h-80 min-h-[300px] w-full p-4"
+              class="min-h-[200px] w-full p-4"
               placeholder="Snood Content"
               required
             ></textarea>
@@ -115,9 +115,9 @@ watch(postModal, () => {
       postModal.value.getBoundingClientRect().width / 2 +
       "px";
     modalHeight.value =
-      window.innerWidth < 1024
-        ? window.innerHeight - parseInt(currentNavHeight.value, 10) - 40 + "px"
-        : null;
+      window.innerWidth >= 1024
+        ? window.innerHeight / 3
+        : window.innerHeight - parseInt(currentNavHeight.value, 10) - 40 + "px";
   }
 });
 
@@ -167,7 +167,7 @@ h3 {
   @apply fixed left-0 top-0 z-30 h-full w-full bg-theme-y;
 }
 #postModal {
-  @apply absolute z-40 flex w-11/12 flex-col justify-center bg-white p-5 shadow-lg lg:px-10 lg:pb-10 lg:pt-2;
+  @apply absolute z-40 flex w-11/12 flex-col justify-center bg-white p-5 pt-10 shadow-lg lg:px-10 lg:pb-10 lg:pt-2;
   @apply lg:container lg:w-full lg:items-center lg:p-10;
   left: v-bind(modalLeft);
   top: v-bind(modalTop);

@@ -39,8 +39,6 @@ const enterSite = () => {
   const prevRoute = localStorage.getItem("prevRoute");
   if (prevRoute === "Videos") {
     navigateTo("/videos");
-  } else if (prevRoute === "Create") {
-    navigateTo("/create");
   } else {
     navigateTo("/");
   }

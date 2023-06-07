@@ -106,6 +106,7 @@ store.setCurrentUser(user.value);
 const handleCart = () => {
   // document.body.classList.toggle("overflow-x-hidden");
   // document.html.classList.toggle("overflow-x-hidden");
+  window.scrollTo(0, 0);
   document.getElementById("productCart").classList.remove("hidden");
   cartVisible.value = !cartVisible.value;
 };
