@@ -1,5 +1,5 @@
 <template>
-  <form class="z-40 flex items-center">
+  <form class="z-20 flex items-center">
     <textarea
       v-model="message"
       class="message w-3/4 cursor-pointer pr-4"

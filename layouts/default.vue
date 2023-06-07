@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper" class="flex flex-col justify-between">
-    <header class="fixed left-0 top-0 z-40 w-[100vw] lg:w-full">
+    <header class="fixed left-0 top-0 z-50 w-[100vw] lg:w-full">
       <NuxtLink class="logo" to="/">send snoods</NuxtLink>
       <nav
         class="flex flex-col justify-center bg-theme-y px-6 md:py-4 xl:h-[60px] 2xl:h-[70px]"

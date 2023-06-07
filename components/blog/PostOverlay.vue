@@ -9,7 +9,7 @@
     >
       <HeroIcons
         icon="x"
-        class="absolute right-10 top-10 scale-150 transform hover:cursor-pointer hover:text-theme-r"
+        class="absolute right-4 top-4 scale-150 transform hover:cursor-pointer hover:text-theme-r lg:right-10 lg:top-10"
         @click="handleClose"
       />
       <div class="w-full">
@@ -48,6 +48,7 @@
               @keydown.,.prevent="handleKeydown"
             />
             <div v-for="tag in tags" :key="tag" class="pill">#{{ tag }}</div>
+            <div v-if="error">{{ error }}</div>
           </div>
           <div class="mx-auto">
             <button class="button mt-2">Add Post</button>
@@ -64,10 +65,11 @@
 </template>
 
 <script setup>
-import { addDoc, collection } from "@firebase/firestore";
+import { doc, setDoc, collection } from "@firebase/firestore";
 import HeroIcons from "../HeroIcons.vue";
 import { db, timestamp } from "@/firebase/config";
 import getUser from "~/composables/auth/getUser";
+import { navHeight } from "~/composables/layout/navHeight";
 
 const error = ref(null);
 const emit = defineEmits(["close-post-modal"]);
@@ -83,36 +85,39 @@ const postmode = computed(() => {
   return props.postmode;
 });
 
-watch(postmode, () => {
-  console.log("postmode.value", postmode.value);
-});
-
-if (postmode.value && window.innerWidth >= 640) {
-  window.onscroll = () => window.scrollTo(0, 0);
-}
-
 const { user } = await getUser();
 
 const postModal = ref(null);
+const modalTop = ref(null);
+const modalLeft = ref(null);
 const modalHeight = ref(null);
-const modalWidth = ref(null);
 const title = ref("");
 const body = ref("");
 const tagInput = ref("");
 const tags = ref([]);
+const currentNavHeight = ref(navHeight());
 
 watch(postModal, () => {
+  window.scrollTo(0, 0);
+  if (postmode.value && window.innerWidth >= 640) {
+    window.onscroll = () => window.scrollTo(0, 0);
+  }
   if (postModal.value) {
-    modalHeight.value =
+    modalTop.value =
       window.innerWidth >= 1024
-        ? window.innerHeight / 2 -
-          postModal.value.getBoundingClientRect().height / 2 +
+        ? (window.innerHeight + parseInt(currentNavHeight.value, 10)) / 2 -
+          postModal.value.getBoundingClientRect().height / 2 -
+          20 +
           "px"
-        : 0;
-    modalWidth.value =
+        : parseInt(currentNavHeight.value, 10) + 20 + "px";
+    modalLeft.value =
       window.innerWidth / 2 -
       postModal.value.getBoundingClientRect().width / 2 +
       "px";
+    modalHeight.value =
+      window.innerWidth < 1024
+        ? window.innerHeight - parseInt(currentNavHeight.value, 10) - 40 + "px"
+        : null;
   }
 });
 
@@ -140,17 +145,13 @@ const handleSubmit = async () => {
   };
 
   try {
-    const colRef = collection(db, "posts");
-    await addDoc(colRef, post);
-    if (!err) {
+    const docReference = doc(collection(db, "posts"));
+    await setDoc(docReference, post);
     handleClose();
-    navigateTo({ path: "/" });
-  }
+    navigateTo({ path: `/details/${docReference.id}` });
   } catch (err) {
     error.value = err.message;
   }
-
-
 };
 </script>
 
@@ -163,12 +164,13 @@ h3 {
   @apply font-jost;
 }
 #modalBg {
-  @apply fixed left-0 top-0 z-20 h-full w-full bg-theme-y;
+  @apply fixed left-0 top-0 z-30 h-full w-full bg-theme-y;
 }
 #postModal {
-  @apply absolute z-30 flex w-11/12 flex-col justify-center bg-white px-10 pb-10 pt-2 shadow-lg;
+  @apply absolute z-40 flex w-11/12 flex-col justify-center bg-white p-5 shadow-lg lg:px-10 lg:pb-10 lg:pt-2;
   @apply lg:container lg:w-full lg:items-center lg:p-10;
-  left: v-bind(modalWidth);
-  top: v-bind(modalHeight);
+  left: v-bind(modalLeft);
+  top: v-bind(modalTop);
+  height: v-bind(modalHeight);
 }
 </style>

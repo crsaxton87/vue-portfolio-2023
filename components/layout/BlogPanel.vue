@@ -9,10 +9,7 @@
       class="col-span-6 flex h-full items-center justify-center bg-white"
     >
       <NuxtLink v-if="index % 2" :to="`/details/${post.id}`">
-        <img
-          class="w-full"
-          :src="`/img/blog/blog${String(index + 1).substring(-1)}.jpg`"
-        />
+        <img class="w-full" :src="`/img/blog/blog${(index + 1) % 10}.jpg`" />
       </NuxtLink>
       <div v-else class="p-4 xl:p-12">
         <SinglePost :post="post" />

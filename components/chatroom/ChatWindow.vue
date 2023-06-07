@@ -50,7 +50,7 @@ onUpdated(() => {
 
 <style scoped>
 #chat-window {
-  @apply z-40 overflow-hidden bg-white px-4 py-2 hover:overflow-auto lg:bg-white/75 lg:px-7 lg:py-5 lg:backdrop-blur-md;
+  @apply z-20 overflow-hidden bg-white px-4 py-2 hover:overflow-auto lg:bg-white/75 lg:px-7 lg:py-5 lg:backdrop-blur-md;
   height: v-bind(chatHeight);
   top: v-bind(currentNavHeight);
 }

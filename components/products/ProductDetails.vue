@@ -106,35 +106,39 @@ store.$subscribe((_mutation, state) => {
 });
 
 const productModal = ref(null);
-const modalHeight = ref(null);
-const modalWidth = ref(null);
+const modalTop = ref(null);
+const modalLeft = ref(null);
 
 onMounted(() => {
+  document.body.classList.add("overflow-y-hidden");
   if (productModal.value) {
-    modalHeight.value =
+    modalTop.value =
       window.innerWidth >= 1024
         ? window.innerHeight / 2 -
           currentNavHeight.value -
           productModal.value.getBoundingClientRect().height / 2 +
           "px"
         : 0;
-    modalWidth.value =
+    modalLeft.value =
       window.innerWidth / 2 -
       productModal.value.getBoundingClientRect().width / 2 +
       "px";
   }
 });
+onUnmounted(() => {
+  document.body.classList.remove("overflow-y-hidden");
+});
 
 watch(productModal, () => {
   if (productModal.value) {
-    modalHeight.value =
+    modalTop.value =
       window.innerWidth >= 1024
         ? window.innerHeight / 2 -
           currentNavHeight.value -
           productModal.value.getBoundingClientRect().height / 2 +
           "px"
-        : 0;
-    modalWidth.value =
+        : parseInt(currentNavHeight.value, 10) + "px";
+    modalLeft.value =
       window.innerWidth / 2 -
       productModal.value.getBoundingClientRect().width / 2 +
       "px";
@@ -161,7 +165,7 @@ const handleClose = () => {
 #productModal {
   @apply absolute z-30 flex w-11/12 flex-col justify-center bg-white px-10 pb-10 pt-2 shadow-lg;
   @apply sm:container sm:grid sm:w-full sm:grid-cols-[1fr_2fr] sm:items-center sm:gap-10 sm:py-10 sm:pl-10 sm:pr-20;
-  left: v-bind(modalWidth);
-  top: v-bind(modalHeight);
+  left: v-bind(modalLeft);
+  top: v-bind(modalTop);
 }
 </style>

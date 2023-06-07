@@ -11,9 +11,7 @@
     >
       <div
         class="image mb-4 lg:col-span-6 lg:mb-0"
-        :style="`background-image:url('/img/blog/blog${String(
-          index + 1
-        ).substring(-1)}.jpg')`"
+        :style="`background-image:url('/img/blog/blog${(index + 1) % 10}.jpg')`"
       ></div>
       <div class="lg:col-span-6">
         <h1>{{ post.title }}</h1>
@@ -25,23 +23,25 @@
         >
           {{ post.body }}
         </div>
-        <div id="pillWrapper" class="mb-4 lg:mb-0">
-          <TagPill
-            v-for="tag in post.tags"
-            :key="tag"
-            class="post-tags"
-            :tag="tag"
-          />
-        </div>
-        <div class="flex items-center justify-center sm:block">
-          <button
-            v-if="showDelete()"
-            class="button mt-4 flex h-10 justify-center"
-            @click="handleClick"
-          >
-            <HeroIcons icon="trash" class="mr-2" />
-            <span>Delete Post</span>
-          </button>
+        <div class="flex justify-between">
+          <div id="pillWrapper" class="mb-4 lg:mb-0">
+            <TagPill
+              v-for="tag in post.tags"
+              :key="tag"
+              class="post-tags"
+              :tag="tag"
+            />
+          </div>
+          <div class="flex items-center justify-center sm:block">
+            <button
+              v-if="showDelete()"
+              class="button mt-4 flex h-10 justify-center"
+              @click="handleClick"
+            >
+              <HeroIcons icon="trash" class="mr-2" />
+              <span>Delete Post</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
