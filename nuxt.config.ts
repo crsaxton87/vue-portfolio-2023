@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     "@nuxtjs/eslint-module",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
-    "@nuxt/devtools",
+    // "@nuxt/devtools",
     "@pinia/nuxt",
     "@nuxtjs/html-validator",
     "nuxt-swiper",
