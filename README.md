@@ -17,6 +17,9 @@
 [![ESLint Badge](https://img.shields.io/static/v1?label=linter&message=ESLint&color=d5cae4)](https://eslint.org/)
 [![Prettier Badge](https://img.shields.io/static/v1?label=formatter&message=Prettier&color=d5cae4)](https://prettier.io/)
 
+## Live Version
+https://portfolio-36624.web.app/
+
 ## Features
 
 ### Home
