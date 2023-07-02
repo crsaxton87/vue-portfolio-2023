@@ -18,6 +18,11 @@
 import PostList from "~/components/blog/PostList.vue";
 import TagCloud from "~/components/blog/TagCloud.vue";
 import getPosts from "~/composables/blog/getPosts";
+import { useStore } from "~/store";
+
+const store = useStore();
+
+const currentNavHeight = computed(() => parseInt(store.navHeight, 10));
 
 const { id } = useRoute().params;
 const { posts, error, fetchPosts } = getPosts();
@@ -29,6 +34,29 @@ onMounted(() => {
 const tagPosts = computed(() =>
   posts.value.filter((post) => post.tags.includes(id))
 );
+
+const bodyHeight = ref("0px");
+
+const handleBodyHeight = () => {
+  bodyHeight.value =
+    window.innerWidth >= 1024
+      ? `${window.innerHeight - currentNavHeight.value - 80}px`
+      : `100%`;
+};
+
+handleBodyHeight();
+
+/**
+ * Watches the store's navHeight property and updates the image height accordingly.
+ */
+watch(
+  () => store.navHeight,
+  (newValue, oldValue) => {
+    if (newValue !== oldValue && newValue !== 0) {
+      handleBodyHeight();
+    }
+  }
+);
 </script>
 
 <style scoped>
@@ -39,12 +67,13 @@ const tagPosts = computed(() =>
   @apply grid grid-cols-12;
 }
 .tag-cloud {
-  @apply col-span-12 mx-auto sm:col-span-2;
+  @apply col-span-12 mx-auto lg:col-span-2;
 }
 .title {
   @apply mb-0 text-center font-jost text-3xl lg:ml-10 lg:text-start;
 }
 .wrapper {
-  @apply mt-10;
+  @apply mt-10 min-h-[100vh];
+  height: v-bind(bodyHeight);
 }
 </style>
