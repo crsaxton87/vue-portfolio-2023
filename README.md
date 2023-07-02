@@ -74,7 +74,7 @@
 - When logged in, the user's email address is displayed at the top of the screen.
 - The menu bar collapses into a hamburger menu on mobile.
 
-[<img src="./img/01b.png" height="369"/>](./img/01b.png)
+[<img src="./img/m01b.png" height="369"/>](./img/m01b.png)
 
 ## Note
 
