@@ -7,7 +7,9 @@ export default defineNuxtConfig({
     "@nuxt/devtools",
     "@pinia/nuxt",
     "@nuxtjs/html-validator",
+    "nuxt-swiper",
   ],
+  css: ["animate.css/animate.min.css"],
   devtools: false,
   ssr: false,
   app: {

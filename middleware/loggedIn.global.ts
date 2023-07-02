@@ -1,3 +1,9 @@
+/**
+ * Middleware function that performs a login check and updates the current user in the store.
+ * @param {object} to - The target route object.
+ * @param {object} from - The previous route object.
+ * @returns {void}
+ */
 import getUser from "~/composables/auth/getUser";
 import { useStore } from "~/store";
 

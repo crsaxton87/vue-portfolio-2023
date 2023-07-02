@@ -1,32 +1,45 @@
 <template>
-  <div class="grid grid-cols-12 justify-items-center">
-    <NuxtLink class="logo col-span-12" to="/">Send Snoods</NuxtLink>
-    <div class="gradient-hr mb-1 mt-6 w-5/6 sm:my-10 sm:w-3/4"></div>
-    <div v-if="error" class="col-span-12">{{ error }}</div>
-    <div v-if="posts.length" class="col-span-12 grid grid-cols-12">
-      <PostList :posts="posts" class="col-span-12 sm:col-span-10" />
-      <div class="col-span-12 grid sm:col-span-2 sm:justify-items-end">
-        <TagCloud :posts="posts" />
-      </div>
+  <main class="wrapper">
+    <div class="button-container">
+      <button class="splash-button" @click.prevent>
+        <nuxt-link to="/products">SHOP SNOODS NOW</nuxt-link>
+      </button>
     </div>
-    <div v-else class="absolute-center">
-      <SpinnerGraphic />
-    </div>
-  </div>
+    <Splash2Up :config="splashConfig" />
+    <ProductTabbedCarousel :config="carouselConfig" />
+    <BannerDivider :config="{ img: '/img/blog/banner01.jpg' }" />
+    <BlogPanel />
+    <div class="padding" name="padding"></div>
+  </main>
 </template>
 
 <script setup>
-import PostList from "~/components/blog/PostList.vue";
-import TagCloud from "~/components/blog/TagCloud.vue";
-import getPosts from "~/composables/blog/getPosts";
+import BannerDivider from "~/components/layout/BannerDivider.vue";
+import BlogPanel from "~/components/layout/BlogPanel.vue";
+import ProductTabbedCarousel from "~/components/layout/ProductTabbedCarousel.vue";
+import Splash2Up from "~/components/layout/Splash2Up.vue";
+import { useStore } from "~/store";
 
-const { posts, error, load } = getPosts();
+import splashConfig from "~/config/splashConfig.json";
+import carouselConfig from "~/config/carouselConfig.json";
 
-load();
+const store = useStore();
+
+const currentNavHeight = computed(() => store.navHeight);
 </script>
 
 <style scoped>
-.logo {
-  @apply mt-2 text-center font-logo text-6xl text-accent3 sm:text-8xl;
+.button-container {
+  @apply absolute z-10 flex w-full items-center justify-center;
+  height: calc(100vh - v-bind(currentNavHeight));
+}
+.padding {
+  @apply hidden p-4 lg:block;
+}
+.splash-button {
+  @apply h-16 w-56 rounded-md bg-theme-y font-jost text-lg font-semibold shadow-md hover:text-theme-r active:text-black;
+}
+.wrapper {
+  @apply grid grid-cols-1;
 }
 </style>
