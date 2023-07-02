@@ -70,3 +70,7 @@
 
 <!-- [<img src="./img/m01.png" width="200"/>](./img/m01.png)
 [<img src="./img/m05.png" width="200"/>](./img/m05.png) -->
+
+## Note
+
+This is a fake website for my portfolio, so I grabbed the product images and descriptions mostly from Zoo Snoods (https://www.zoosnoods.com/). Go buy their products!
