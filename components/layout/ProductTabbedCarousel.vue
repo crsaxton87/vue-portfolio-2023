@@ -5,12 +5,9 @@
         v-for="(tab, index) in config"
         :key="index"
         :class="{ active: show === tab.name }"
-        class="w-1/3 translate-y-0.5 transform text-center"
+        class="tabs"
       >
-        <div
-          class="cursor-pointer font-jost font-medium"
-          @click.prevent="handleNavClick(tab.name)"
-        >
+        <div class="tab" @click.prevent="handleNavClick(tab.name)">
           {{ tab.name }}
         </div>
       </div>
@@ -77,5 +74,11 @@ main {
 }
 .product {
   @apply mx-auto mt-4 grid w-11/12 grid-cols-1 gap-5 md:w-11/12 lg:grid-cols-3;
+}
+.tab {
+  @apply cursor-pointer font-jost font-medium;
+}
+.tabs {
+  @apply w-1/3 translate-y-0.5 transform text-center;
 }
 </style>

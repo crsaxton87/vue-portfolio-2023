@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <div class="mx-auto my-8 grid w-5/6 gap-4">
+    <div class="form-wrapper">
       <input
         v-model="email"
         class="form"
@@ -29,7 +29,7 @@ import getUser from "~/composables/auth/getUser";
 const store = useStore();
 const email = ref("");
 const password = ref("");
-const emit = defineEmits(["login"]);
+const emit = defineEmits(["auth"]);
 
 const { error, login } = useLogin();
 
@@ -39,7 +39,7 @@ const handleSubmit = async () => {
     const { user } = await getUser();
     store.setCurrentUser(user.value);
     store.logIn();
-    emit("login");
+    emit("auth");
   }
 };
 </script>
@@ -47,5 +47,8 @@ const handleSubmit = async () => {
 <style scoped>
 .form {
   @apply w-full rounded-md border-2 border-theme-b/25 p-2;
+}
+.form-wrapper {
+  @apply mx-auto my-8 grid w-5/6 gap-4;
 }
 </style>

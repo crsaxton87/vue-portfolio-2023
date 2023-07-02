@@ -13,8 +13,11 @@
 
 <script setup>
 import { formatDistanceToNow } from "date-fns";
-import { navHeight } from "~/composables/layout/navHeight";
 import getCollection from "@/composables/chatroom/getCollection";
+import { useStore } from "~/store";
+
+const store = useStore();
+const currentNavHeight = computed(() => store.navHeight);
 
 const { documents, error } = getCollection("messages");
 
@@ -27,18 +30,33 @@ const formattedDocuments = computed(() => {
   }
 });
 
-const currentNavHeight = ref(navHeight());
-
 const chatHeight = ref(0);
 
-chatHeight.value =
-  window.innerWidth >= 1024
-    ? (window.innerHeight - parseInt(currentNavHeight.value, 10)) * 0.9 + "px"
-    : (window.innerHeight -
-        parseInt(currentNavHeight.value, 10) -
-        (window.innerWidth / 16) * 9) *
-        0.8 +
-      "px";
+/**
+ * Updates the chat height based on the window size and navigation height.
+ */
+const handleChatHeight = () => {
+  chatHeight.value =
+    window.innerWidth >= 1024
+      ? (window.innerHeight - parseInt(currentNavHeight.value, 10)) * 0.9 + "px"
+      : (window.innerHeight -
+          parseInt(currentNavHeight.value, 10) -
+          (window.innerWidth / 16) * 9) *
+          0.8 +
+        "px";
+};
+
+// Calculate the initial chat height
+handleChatHeight();
+
+watch(
+  () => store.navHeight,
+  (newValue, oldValue) => {
+    if (newValue !== oldValue && newValue !== 0) {
+      handleChatHeight();
+    }
+  }
+);
 
 const messages = ref(null);
 

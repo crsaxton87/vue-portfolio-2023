@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="post in posts" :key="post.id" class="post">
+    <div v-for="post in posts" :key="post.id" class="mt-10">
       <SinglePost :post="post" />
     </div>
   </div>
@@ -16,9 +16,3 @@ defineProps({
   },
 });
 </script>
-
-<style scoped>
-.post {
-  @apply mt-10;
-}
-</style>

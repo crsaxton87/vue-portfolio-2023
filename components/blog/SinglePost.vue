@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="`/details/${post.id}`">
+  <NuxtLink :to="`/blog/${post.id}`">
     <h1 id="title">{{ post.title }}</h1>
     <h2 v-if="post.subhead" id="subhead">{{ post.subhead }}</h2>
     <p id="snippet">{{ snippet(post.body) }}</p>

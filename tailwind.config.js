@@ -13,8 +13,6 @@ export default {
         "off-white": "#fcfbf8",
       },
       fontFamily: {
-        logo: ["Pacifico", "cursive"],
-        nunito: ["Nunito", "sans-serif"],
         jost: ["Jost", "sans-serif"],
         oliver: ["Oliver", "sans-serif"],
       },

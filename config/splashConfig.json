@@ -1,0 +1,12 @@
+{
+  "left": {
+    "textTop": "snood",
+    "textBottom": "doggy dogg",
+    "img": "/img/blog/splash01.jpg"
+  },
+  "right": {
+    "textTop": "cute pooch",
+    "textBottom": "comfy snood",
+    "img": "/img/blog/splash02.jpg"
+  }
+}

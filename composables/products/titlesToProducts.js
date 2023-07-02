@@ -1,13 +1,20 @@
+/**
+ * Maps titles to corresponding product data.
+ * @param {Array} config - The configuration array containing tabs and titles.
+ * @returns {Promise<Array>} The updated configuration array with mapped products.
+ */
+
 import getProducts from "../../composables/products/getProducts";
 
-const { products, load } = getProducts();
+const { products, fetchProducts } = getProducts();
 
 export const titlesToProducts = async (config) => {
-  await load();
+  await fetchProducts();
+
   for (const tab of config) {
-    tab.products = tab.titles.map((item) => {
-      return products.value.filter((product) => product.title === item)[0];
-    });
+    tab.products = tab.titles.map((item) =>
+      products.value.find((product) => product.title === item)
+    );
   }
   return config;
 };

@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <div class="mx-auto my-8 grid w-5/6 gap-4">
+    <div class="form-wrapper">
       <input
         v-model="displayName"
         class="form"
@@ -36,12 +36,12 @@ const { error, signup } = useSignup();
 const displayName = ref("");
 const email = ref("");
 const password = ref("");
-const emit = defineEmits(["signup"]);
+const emit = defineEmits(["auth"]);
 
 const handleSubmit = async () => {
   await signup(email.value, password.value, displayName.value);
   if (!error.value) {
-    emit("signup");
+    emit("auth");
   }
 };
 </script>
@@ -49,5 +49,8 @@ const handleSubmit = async () => {
 <style scoped>
 .form {
   @apply w-full rounded-md border-2 border-theme-b/25 p-2;
+}
+.form-wrapper {
+  @apply mx-auto my-8 grid w-5/6 gap-4;
 }
 </style>

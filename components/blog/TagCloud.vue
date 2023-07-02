@@ -1,13 +1,8 @@
 <template>
-  <div class="flex flex-col px-4 pb-5 text-center sm:w-2/3 sm:px-0">
-    <div class="mb-4 mt-10 font-oliver text-4xl text-theme-r">Tags</div>
+  <div class="cloud-wrapper">
+    <div class="title">Tags</div>
     <div class="self-center">
-      <TagPill
-        v-for="tag in tags"
-        :key="tag"
-        :tag="tag"
-        class="mb-2 mr-1 sm:mr-2"
-      />
+      <TagPill v-for="tag in tags" :key="tag" :tag="tag" class="pill-style" />
     </div>
   </div>
 </template>
@@ -24,3 +19,15 @@ const props = defineProps({
 });
 const { tags } = useTags(props.posts);
 </script>
+
+<style scoped>
+.cloud-wrapper {
+  @apply flex flex-col px-4 pb-5 text-center sm:w-2/3 sm:px-0;
+}
+.title {
+  @apply mb-4 mt-10 font-oliver text-4xl text-theme-r;
+}
+.pill-style {
+  @apply mb-2 mr-1 sm:mr-2;
+}
+</style>

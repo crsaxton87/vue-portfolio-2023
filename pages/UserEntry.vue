@@ -1,24 +1,17 @@
 <template>
-  <div id="entryForm" class="flex items-center justify-center">
-    <main
-      class="mx-auto flex h-[66vh] w-full flex-col items-center justify-center rounded-lg bg-white text-center lg:w-3/4 xl:w-1/2"
-    >
+  <div id="entryForm">
+    <main id="formBody">
       <h1>Welcome</h1>
-      <div v-if="showLogin">
-        <h2>Log in to use the chat room or create blog posts</h2>
-        <LoginForm @login="enterSite" />
+      <div>
+        <h2>
+          {{ message }}
+        </h2>
+        <component :is="showLogin ? LoginForm : SignupForm" @auth="enterSite" />
         <p>
-          No account yet?
-          <span class="login-toggle" @click="showLogin = false">Sign up</span>
-          instead
-        </p>
-      </div>
-      <div v-else>
-        <h2>Sign up to use the chat room or create blog posts</h2>
-        <SignupForm @signup="enterSite" />
-        <p>
-          Already registered?
-          <span class="login-toggle" @click="showLogin = true">Log in</span>
+          {{ prompt }}
+          <span class="login-toggle" @click="showLogin = !showLogin">{{
+            action
+          }}</span>
           instead
         </p>
       </div>
@@ -29,22 +22,53 @@
 <script setup>
 import SignupForm from "@/components/auth/SignupForm.vue";
 import LoginForm from "@/components/auth/LoginForm.vue";
-import { navHeight } from "~/composables/layout/navHeight";
+import { useStore } from "~/store";
 
-const currentNavHeight = ref(parseInt(navHeight(), 10));
+const store = useStore();
+
+const currentNavHeight = computed(() => parseInt(store.navHeight, 10));
 
 const showLogin = ref(true);
 
+const message = computed(() =>
+  showLogin.value
+    ? "Log in to use the chat room or create blog posts"
+    : "Sign up to use the chat room or create blog posts"
+);
+const prompt = computed(() =>
+  showLogin.value ? "No account yet? " : "Already registered? "
+);
+const action = computed(() => (showLogin.value ? "Sign up" : "Log in"));
+
+/**
+ * Navigates to the previous route stored in localStorage.
+ * If the previous route is "Videos", navigates to "/videos", otherwise navigates to "/".
+ */
 const enterSite = () => {
   const prevRoute = localStorage.getItem("prevRoute");
-  if (prevRoute === "Videos") {
-    navigateTo("/videos");
-  } else {
-    navigateTo("/");
-  }
+  navigateTo(prevRoute === "Videos" ? "/videos" : "/");
 };
 
-const formHeight = window.innerHeight - currentNavHeight.value - 40 + "px";
+/**
+ * The watcher for the store.navHeight property.
+ * Calls the handleFormHeight function when the navHeight value changes and is not zero.
+ */
+watch(
+  () => store.navHeight,
+  (newValue, oldValue) => {
+    if (newValue !== oldValue && newValue !== 0) {
+      handleFormHeight();
+    }
+  }
+);
+
+const formHeight = ref(`${window.innerHeight - currentNavHeight.value - 40}px`);
+
+const handleFormHeight = () => {
+  formHeight.value = `${window.innerHeight - currentNavHeight.value - 40}px`;
+};
+
+handleFormHeight();
 </script>
 
 <style scoped>
@@ -56,6 +80,10 @@ h2 {
 }
 #entryForm {
   height: v-bind(formHeight);
+  @apply flex w-full items-center justify-center;
+}
+#formBody {
+  @apply mx-auto flex h-[66vh] w-full flex-col items-center justify-center rounded-lg bg-white text-center lg:w-3/4 xl:w-1/2;
 }
 .login-toggle {
   @apply cursor-pointer font-bold underline;

@@ -1,3 +1,8 @@
+/**
+ * Get the current authenticated user from Firebase
+ * @returns {Promise<{ user: Ref<null> }>} An object containing the current authenticated user ref
+ */
+
 import { ref } from "vue";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/firebase/config";
@@ -5,23 +10,14 @@ import { auth } from "@/firebase/config";
 const user = ref(null);
 
 const getUser = async () => {
-  try {
-    await new Promise((resolve) => {
-      const unsubscribe = onAuthStateChanged(auth, (_user) => {
-        user.value = _user;
-        // if (user.value) {
-        //   console.log("user value present");
-        // } else {
-        //   console.log("user value not present");
-        // }
-        resolve();
-        unsubscribe();
-      });
+  await new Promise((resolve) => {
+    const unsubscribe = onAuthStateChanged(auth, (userSnapshot) => {
+      user.value = userSnapshot;
+      resolve();
+      unsubscribe();
     });
-    return { user };
-  } catch (error) {
-    throw new Error("Error getting user");
-  }
+  });
+  return { user };
 };
 
 export default getUser;

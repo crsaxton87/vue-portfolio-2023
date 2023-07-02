@@ -1,5 +1,11 @@
-import { ref, watchEffect } from "vue";
+/**
+ * Retrieves a collection of chat message documents from Firestore and provides reactivity.
+ *
+ * @param {string} col - The name of the collection to retrieve.
+ * @returns {Object} - An object containing the reactive `documents` array and the `error` value.
+ */
 
+import { ref, watchEffect } from "vue";
 import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "@/firebase/config";
 
@@ -12,21 +18,21 @@ const getCollection = (col) => {
   const unsub = onSnapshot(
     collectionRef,
     (snap) => {
-      const results = [];
-      snap.docs.forEach((doc) => {
-        doc.data().createdAt && results.push({ ...doc.data(), id: doc.id });
-      });
+      const results = snap.docs
+        .map((doc) => doc.data().createdAt && { ...doc.data(), id: doc.id })
+        .filter(Boolean);
       documents.value = results;
       error.value = null;
     },
     (err) => {
-      // console.log(err.message);
       documents.value = null;
       error.value = "Could not fetch data:" + err.message;
     }
   );
 
-  // Unsubscribe from collection when watcher is stopped (component unmounted)
+  /**
+   * Unsubscribe from the collection when the watcher is stopped (component unmounted).
+   */
   watchEffect((onInvalidate) => {
     onInvalidate(() => unsub());
   });

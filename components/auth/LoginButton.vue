@@ -1,11 +1,7 @@
 <template>
-  <div
-    class="flex flex-col items-end justify-between leading-8 md:flex-row md:items-center"
-  >
+  <div class="button-wrapper">
     <span v-if="error">{{ error.message }}</span>
-    <span
-      v-if="currentUser"
-      class="font-jost text-xs italic text-theme-r md:mr-4 lg:text-base"
+    <span v-if="currentUser" class="current-user"
       >logged in as {{ currentUser.email }}</span
     >
     <NuxtLink
@@ -38,6 +34,12 @@ const handleLogout = async () => {
 </script>
 
 <style scoped>
+.button-wrapper {
+  @apply flex flex-col items-end justify-between leading-8 md:flex-row md:items-center;
+}
+.current-user {
+  @apply font-jost text-xs italic text-theme-r md:mr-4 lg:text-base;
+}
 .login-link {
   @apply font-jost text-lg font-medium uppercase tracking-wider hover:text-theme-r active:text-black md:text-sm md:tracking-normal lg:text-lg lg:tracking-wider;
 }

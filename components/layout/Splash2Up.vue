@@ -1,7 +1,7 @@
 <template>
-  <section class="splash-columns grid grid-cols-1 lg:grid-cols-2">
+  <section class="splash-columns">
     <div
-      class="panel relative grid grid-cols-1 justify-items-end"
+      class="panel panel-left"
       :style="`background-image:url(${props.config.left.img})`"
     >
       <aside class="splash-text splash-text-left">
@@ -10,7 +10,7 @@
       </aside>
     </div>
     <div
-      class="panel relative grid grid-cols-1 justify-items-start"
+      class="panel panel-right"
       :style="`background-image:url(${props.config.right.img})`"
     >
       <aside class="splash-text splash-text-right">
@@ -22,8 +22,11 @@
 </template>
 
 <script setup>
-import { navHeight } from "~/composables/layout/navHeight";
-const currentNavHeight = ref(navHeight());
+import { useStore } from "~/store";
+
+const store = useStore();
+
+const currentNavHeight = computed(() => store.navHeight);
 
 const props = defineProps({
   config: {
@@ -45,8 +48,15 @@ h3 {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.panel-left {
+  @apply relative grid grid-cols-1 justify-items-end;
+}
+.panel-right {
+  @apply relative grid grid-cols-1 justify-items-start;
+}
 .splash-columns {
   height: calc(100vh - v-bind(currentNavHeight));
+  @apply grid grid-cols-1 lg:grid-cols-2;
 }
 .splash-text {
   @apply absolute font-oliver text-3xl text-theme-r md:text-5xl;
