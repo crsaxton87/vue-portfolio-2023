@@ -26,10 +26,10 @@ https://portfolio-36624.web.app/
 
 - The landing page starts with a 2-up splash page to catch the eye
 - Features a highlighted products carousel
-- Blog posts are stored in the database and displayed in order of creation.
-- Each post has tags that, when clicked, shows a list of all posts with the same tags.
-- Registered and logged in users can create posts.
-- Users can only delete posts that they created.
+- AI-generated blog posts are stored in the database and displayed in order of creation
+- Each post has tags that, when clicked, shows a list of all posts with the same tags
+- Registered and logged in users can create posts
+- Users can only delete posts that they created
 
 [<img src="./img/01.png"/>](./img/01.png)
 [<img src="./img/m01.png"/>](./img/m01.png)
@@ -45,9 +45,9 @@ https://portfolio-36624.web.app/
 
 ### Store
 
-- The store displays a full line of products retrieved from the database, with AI-generated titles and descriptions.
-- Product cards alternate images on mouseover or images can be swiped on mobile.
-- Products can be added to or removed from a cart that is persistent across page reloads.
+- The store displays a full line of products retrieved from the database, with prices and descriptions
+- Product cards alternate images on mouseover or images can be swiped on mobile
+- Products can be added to or removed from a cart that is persistent across page reloads
 
 [<img src="./img/02.png"/>](./img/02.png)
 [<img src="./img/m02.png"/>](./img/m02.png)
@@ -57,25 +57,25 @@ https://portfolio-36624.web.app/
 
 ### Video Chat Room
 
-- Users can chat with each other while watching a live stream from YouTube.
-- Chat messages are stored in the database and displayed with the newest messages at the bottom of the window.
-- Individual messages show the name of the user that sent it and how long it has been since it was sent.
+- Users can chat with each other while watching a live stream from YouTube
+- Chat messages are stored in the database and displayed with the newest messages at the bottom of the window
+- Individual messages show the name of the user that sent it and how long it has been since it was sent
 
 [<img src="./img/03.png"/>](./img/03.png)
 [<img src="./img/m03.png"/>](./img/m03.png)
 
 ### Log in / Sign up
 
-- Users are able to create and log in with accounts with username, email, and password.
-- The blog post creation and video chat room pages are only accessible by logged in users.
+- Users are able to create and log in with accounts with username, email, and password
+- The blog post creation and video chat room pages are only accessible by logged in users
 
 [<img src="./img/05.png"/>](./img/05.png)
 [<img src="./img/m05.png"/>](./img/m05.png)
 
 ### Nav Bar
 
-- When logged in, the user's email address is displayed at the top of the screen.
-- The menu bar collapses into a hamburger menu on mobile.
+- When logged in, the user's email address is displayed at the top of the screen
+- The menu bar collapses into a hamburger menu on mobile
 
 [<img src="./img/m01b.png"/>](./img/m01b.png)
 
