@@ -38,6 +38,7 @@
     "@pinia/nuxt": "^0.4.8",
     "animate.css": "^4.1.1",
     "date-fns": "^2.29.3",
+    "dotenv": "^16.4.5",
     "firebase": "^9.19.1",
     "nuxt-swiper": "^1.1.0",
     "pinia": "^2.0.34",
