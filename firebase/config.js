@@ -1,9 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, serverTimestamp } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBtRzZlHJxvwAZlB6TvxYq8oVkyfwsNjyc",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "portfolio-36624.firebaseapp.com",
   projectId: "portfolio-36624",
   storageBucket: "portfolio-36624.appspot.com",
