@@ -6,7 +6,7 @@
         :pagination="{
           dynamicBullets: true,
         }"
-        :navigation="true"
+        :navigation="false"
         class="swiper"
       >
         <SwiperSlide>
