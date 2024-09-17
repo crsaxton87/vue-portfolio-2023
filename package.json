@@ -1,10 +1,11 @@
 {
   "name": "vue-portfolio-2023",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "deploy": "npm run build && firebase deploy",
-    "dev": "nuxt dev",
+    "dev": "nuxi dev -o",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "preview:fb": "npm run build && firebase emulators:start",
